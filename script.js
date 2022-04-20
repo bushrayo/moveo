@@ -56,16 +56,23 @@ function stopAll(){
     for (let index = 1; index < num; index++) {
         let audioID = document.getElementById("audio-player" + index);
         audioID.pause();
+        audioID.load();
         
     }
 
 }
 
 async function loopAll(){
+    if(loop==false){
+        loop=true;
+    }
+    else{
+        loop=false;
+        stopAll();
+    }
     
-    if (loop==false) {
-        let loop=true;
-        let index=1;
+    
+    let index=1;
 
         while(loop){
             
@@ -79,12 +86,6 @@ async function loopAll(){
             index++;
            
         }
-    }
-    else{
-        loop=false;
-    }
-              
-        
     }
 
 
